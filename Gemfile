@@ -16,8 +16,16 @@ gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# JWT token/encoding tools
 gem 'jwt', '~> 2.1'
 gem 'active_model_serializers', '~> 0.10.7'
+
+# API tools to translate data
+gem 'rest-client'
+gem 'json'
+
+# Allowing ENV variables to be accessible
+gem 'dotenv-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
