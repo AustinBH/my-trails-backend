@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       get '/account', to: 'users#account'
       patch '/account', to: 'users#edit'
       post '/login', to: 'auth#create'
-      get '/current_user', to: 'auth#show'
     end
   end
 end

@@ -1,8 +1,11 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
 
     def account
-        render json: {user: UserSerializer.new(current_user)}, status: :accepted
+        if logged_in?
+            render json: {user: UserSerializer.new(current_user)}, status: :accepted
+        else
+            render json: {error: 'No user could be found'}, status: 401
+        end
     end
 
     def create
