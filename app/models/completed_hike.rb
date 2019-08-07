@@ -1,0 +1,2 @@
+class CompletedHike < ApplicationRecord
+end
