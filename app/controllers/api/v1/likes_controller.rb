@@ -8,6 +8,12 @@ class Api::V1::LikesController < ApplicationController
         end
     end
 
+    def delete
+        like = Like.find_by(like_params)
+        like.delete
+        render json: {message: 'Like deleted successfully'}, status: :accepted
+    end
+
     private
     def like_params
         params.require(:like).permit(:user_id, :trail_id)

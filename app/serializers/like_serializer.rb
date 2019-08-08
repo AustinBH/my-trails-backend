@@ -1,3 +1,3 @@
-class UserSerializer < ActiveModel::Serializer
+class LikeSerializer < ActiveModel::Serializer
   attributes :trail_id, :user_id
 end
