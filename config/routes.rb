@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       patch '/account', to: 'users#edit'
       post '/login', to: 'auth#create'
       get '/locations', to: 'locations#index'
+      get '/trails-by-location', to: 'trails#location_search'
     end
   end
 end
