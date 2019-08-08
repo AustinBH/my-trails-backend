@@ -14,4 +14,4 @@ Rails.application.routes.draw do
       delete '/completed-hikes', to: 'completed_hikes#delete'
     end
   end
-end
+end 
