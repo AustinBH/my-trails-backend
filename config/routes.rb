@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/locations', to: 'locations#index'
       get '/trails-by-location', to: 'trails#location_search'
+      get '/trails-by-ids', to: 'trails#ids_search'
       post '/likes', to: 'likes#create'
       delete '/likes', to: 'likes#delete'
       post '/completed-hikes', to: 'completed_hikes#create'
