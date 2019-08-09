@@ -18,8 +18,26 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def update
+        if logged_in?
+            user = current_user
+            if user.authenticate(user_params[:password])
+                if user_params[:new_password]
+                    user.update(username: user_params[:username], password: user_params[:new_password])
+                else
+                    user.update(username: user_params[:username])
+                end
+                render json: {user: UserSerializer.new(user)}, status: :accepted
+            else 
+                render json: {error: 'Please enter correct information'}, status: :not_acceptable
+            end
+        else
+            render json: {error: 'No user could be found'}, status: 401
+        end
+    end
+
     private
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:username, :password, :new_password)
     end
 end
