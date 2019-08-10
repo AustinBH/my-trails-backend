@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :likes, :comments, :completed_hikes
+  attributes :id, :username, :distance, :results, :likes, :comments, :completed_hikes
 
   def likes
     self.object.likes.map do |like|
