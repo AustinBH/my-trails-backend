@@ -3,14 +3,14 @@ class Api::V1::CommentsController < ApplicationController
     def index
         if params[:trail_id]
             comments = Comment.where(trail_id: params[:trail_id])
-            render json: comments
+            render json: comments, status: :accepted
         end
     end
 
     def create
         comment = Comment.new(comment_params)
         if comment.save
-            render json: comment
+            render json: comment, status: :accepted
         else
             render json: {error: 'Incorrect comment submission'}, status: :not_acceptable
         end
@@ -19,10 +19,16 @@ class Api::V1::CommentsController < ApplicationController
     def update
         comment = Comment.find(comment_params[:id])
         if comment.update(content: comment_params[:content])
-            render json: comment
+            render json: comment, status: :accepted
         else
             render json: {error: 'Incorrect comment submission'}, status: :not_acceptable
         end
+    end
+
+    def delete
+        comment = Comment.find(comment_params[:id])
+        comment.delete
+        render json: {message: 'Comment deleted successfully'}, status: :accepted
     end
 
     private
