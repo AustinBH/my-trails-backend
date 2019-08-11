@@ -23,9 +23,9 @@ class Api::V1::UsersController < ApplicationController
             user = current_user
             if user.authenticate(user_params[:password])
                 if user_params[:new_password]
-                    user.update(username: user_params[:username], password: user_params[:new_password])
+                    user.update(username: user_params[:username], password: user_params[:new_password], results: user_params[:results], distance: user_params[:distance])
                 else
-                    user.update(username: user_params[:username], password: user_params[:password])
+                    user.update(username: user_params[:username], password: user_params[:password], results: user_params[:results], distance: user_params[:distance])
                 end
                 render json: {user: UserSerializer.new(user)}, status: :accepted
             else 
