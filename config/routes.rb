@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       delete '/completed-hikes', to: 'completed_hikes#delete'
       get '/comments', to: 'comments#index'
       post '/comments', to: 'comments#create'
+      patch '/comments', to: 'comments#update'
     end
   end
 end 
