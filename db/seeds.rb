@@ -38,6 +38,8 @@ Location.create(name: 'Louisville', latitude: '38.2527', longitude: '-85.7585', 
 Location.create(name: 'Nashville', latitude: '36.1627', longitude: '-86.7816', state: 'TN')
 Location.create(name: 'Jackson', latitude: '32.2988', longitude: '-90.1848', state: 'MS')
 Location.create(name: 'Tuscaloosa', latitude: '33.2098', longitude: '-87.5692', state: 'AL')
+Location.create(name: 'Traverse City', latitude: '44.7631', longitude: '-85.6206', state: 'MI')
+Location.create(name: 'Indianapolis', latitude: '39.7684', longitude: '-86.1581', state: 'IN')
 Location.create(name: 'Cleveland', latitude: '41.4993', longitude: '-81.6944', state: 'OH')
 Location.create(name: 'Harpers Ferry', latitude: '39.3254', longitude: '-77.7389', state: 'WV')
 Location.create(name: 'Williamsburg', latitude: '37.2707', longitude: '-76.7075', state: 'VA')
