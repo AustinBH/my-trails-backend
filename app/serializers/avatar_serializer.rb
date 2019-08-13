@@ -1,3 +1,3 @@
 class AvatarSerializer < ActiveModel::Serializer
-  attributes :id, :img_url
+  attributes :id, :img_url, :name
 end
