@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get '/account', to: 'users#account'
       patch '/account', to: 'users#update'
       post '/login', to: 'auth#create'
+      get '/avatars', to: 'avatars#index'
       get '/locations', to: 'locations#index'
       get '/trails-by-location', to: 'trails#location_search'
       get '/trails-by-ids', to: 'trails#ids_search'
