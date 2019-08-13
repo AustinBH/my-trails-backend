@@ -23,9 +23,9 @@ class Api::V1::UsersController < ApplicationController
             user = current_user
             if user.authenticate(user_params[:password])
                 if user_params[:new_password]
-                    user.update(username: user_params[:username], password: user_params[:new_password], results: user_params[:results], distance: user_params[:distance])
+                    user.update(username: user_params[:username], password: user_params[:new_password], results: user_params[:results], distance: user_params[:distance], avatar_id: user_params[:avatar_id])
                 else
-                    user.update(username: user_params[:username], password: user_params[:password], results: user_params[:results], distance: user_params[:distance])
+                    user.update(user_params)
                 end
                 render json: {user: UserSerializer.new(user)}, status: :accepted
             else 
@@ -38,6 +38,6 @@ class Api::V1::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:username, :password, :new_password, :distance, :results)
+        params.require(:user).permit(:username, :password, :new_password, :distance, :results, :avatar_id)
     end
 end
