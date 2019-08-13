@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_160539) do
+ActiveRecord::Schema.define(version: 2019_08_13_201531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "avatars", force: :cascade do |t|
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -53,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_160539) do
     t.datetime "updated_at", null: false
     t.integer "distance"
     t.integer "results"
+    t.integer "avatar_id"
   end
 
 end

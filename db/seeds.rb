@@ -60,3 +60,13 @@ Location.create(name: 'Burlington', latitude: '44.4759', longitude: '-73.2121', 
 Location.create(name: 'Portland', latitude: '43.6591', longitude: '-70.2568', state: 'ME')
 Location.create(name: 'Anchorage', latitude: '61.2181', longitude: '-149.9003', state: 'AK')
 Location.create(name: 'Honolulu', latitude: '21.3069', longitude: '-157.8583', state: 'HI')
+
+Avatar.create(img_url: 'https://img.icons8.com/color/2x/trekking.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-1-2.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-4.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-5.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-6.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-1-2.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-4.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-5.png')
+Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-6.png')
