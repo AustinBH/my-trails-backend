@@ -2,7 +2,8 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :username, :distance, :results, :avatar, :likes, :comments, :completed_hikes
 
   def avatar
-    object.avatar.img_url
+    {id: object.avatar.id,
+    img_url: object.avatar.img_url}
   end
 
   def likes
