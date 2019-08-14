@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-
     def account
         if logged_in?
             render json: {user: UserSerializer.new(current_user)}, status: :accepted
