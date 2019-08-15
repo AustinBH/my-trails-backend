@@ -10,7 +10,9 @@ class CommentSerializer < ActiveModel::Serializer
   end
 
   def avatar
-    avatar = Avatar.find(object.user.avatar_id)
-    avatar.img_url
+    if object.user.avatar_id
+      avatar = Avatar.find(object.user.avatar_id)
+      avatar.img_url
+    end
   end
 end

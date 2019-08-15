@@ -3,7 +3,7 @@ class Api::V1::CommentsController < ApplicationController
     def index
         if params[:trail_id]
             comments = Comment.where(trail_id: params[:trail_id])
-            render json: comments, status: :accepted
+            render json: comments.sort, status: :accepted
         end
     end
 
