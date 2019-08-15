@@ -1,4 +1,11 @@
 class Api::V1::LikesController < ApplicationController
+    def index
+        if params[:trail_id]
+            likes = Like.where(trail_id: params[:trail_id])
+            render json: likes, status: :accepted
+        end
+    end
+
     def create
         like = Like.new(like_params)
         if like.save

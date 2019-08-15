@@ -1,4 +1,11 @@
 class Api::V1::CompletedHikesController < ApplicationController
+    def index
+        if params[:trail_id]
+            completed_hikes = CompletedHike.where(trail_id: params[:trail_id])
+            render json: completed_hikes, status: :accepted
+        end
+    end
+
     def create
         completed_hike = CompletedHike.new(completed_hike_params)
         if completed_hike.save
