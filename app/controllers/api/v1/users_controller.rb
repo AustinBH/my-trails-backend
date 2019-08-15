@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
                 end
                 render json: {user: UserSerializer.new(user)}, status: :accepted
             else 
-                render json: {error: 'Please enter correct information'}, status: :not_acceptable
+                render json: {error: 'Please enter correct password'}, status: :not_acceptable
             end
         else
             render json: {error: 'No user could be found'}, status: 401
