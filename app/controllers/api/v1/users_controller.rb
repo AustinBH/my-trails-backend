@@ -35,6 +35,19 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def delete
+        if logged_in?
+            if current_user.authenticate(user_params[:password])
+                current_user.delete
+                render json: {message: 'User deleted successfully'}, status: :accepted
+            else
+                render json: {error: 'Please enter the correct information'}, status: :not_acceptable
+            end
+        else
+            render json: {error: 'No user could be found'}, status: 401
+        end
+    end
+
     private
     def user_params
         params.require(:user).permit(:username, :password, :new_password, :distance, :results, :avatar_id)

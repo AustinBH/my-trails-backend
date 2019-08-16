@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create]
       get '/account', to: 'users#account'
       patch '/account', to: 'users#update'
+      delete '/account', to: 'users#delete'
       post '/login', to: 'auth#create'
       get '/avatars', to: 'avatars#index'
       get '/locations', to: 'locations#index'
