@@ -1,10 +1,7 @@
 class Api::V1::UsersController < ApplicationController
+    before_action :authorized
     def account
-        if logged_in?
-            render json: {user: UserSerializer.new(current_user)}, status: :accepted
-        else
-            render json: {error: 'No user could be found'}, status: 401
-        end
+        render json: {user: UserSerializer.new(current_user)}, status: :accepted
     end
 
     def create
@@ -18,33 +15,25 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update
-        if logged_in?
-            user = current_user
-            if user.authenticate(user_params[:password])
-                if user_params[:new_password]
-                    user.update(username: user_params[:username], password: user_params[:new_password], results: user_params[:results], distance: user_params[:distance], avatar_id: user_params[:avatar_id])
-                else
-                    user.update(user_params)
-                end
-                render json: {user: UserSerializer.new(user)}, status: :accepted
-            else 
-                render json: {error: 'Please enter the correct information'}, status: :not_acceptable
+        user = current_user
+        if user.authenticate(user_params[:password])
+            if user_params[:new_password]
+                user.update(username: user_params[:username], password: user_params[:new_password], results: user_params[:results], distance: user_params[:distance], avatar_id: user_params[:avatar_id])
+            else
+                user.update(user_params)
             end
-        else
-            render json: {error: 'No user could be found'}, status: 401
+            render json: {user: UserSerializer.new(user)}, status: :accepted
+        else 
+            render json: {error: 'Please enter the correct information'}, status: :not_acceptable
         end
     end
 
     def delete
-        if logged_in?
-            if current_user.authenticate(user_params[:password])
-                current_user.delete
-                render json: {message: 'User deleted successfully'}, status: :accepted
-            else
-                render json: {error: 'Please enter the correct information'}, status: :not_acceptable
-            end
+        if current_user.authenticate(user_params[:password])
+            current_user.delete
+            render json: {message: 'User deleted successfully'}, status: :accepted
         else
-            render json: {error: 'No user could be found'}, status: 401
+            render json: {error: 'Please enter the correct information'}, status: :not_acceptable
         end
     end
 

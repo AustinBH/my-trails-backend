@@ -1,4 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
+    before_action :authorized, only: [:create, :update, :delete]
 
     def index
         if params[:trail_id]
