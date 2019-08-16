@@ -2,7 +2,7 @@ class CommentSerializer < ActiveModel::Serializer
   attributes :content, :id, :user_id, :trail_id, :created_at, :username, :avatar
 
   def created_at
-    self.object.created_at.strftime("%I:%M %p (UTC) %m/%d/%Y")
+    self.object.created_at.localtime.strftime("%I:%M %p %m/%d/%Y")
   end
 
   def username

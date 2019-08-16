@@ -83,13 +83,16 @@ Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-5.
 Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-6.png', name: 'male 5')
 
 counter_1 = 1
-
-while counter < 21 do
-    User.create(username: "Example#{counter_1}", password: '123', avatar_id: counter_1, distance: 20, results: 20)
-end
-
 counter_2 = 1
 
-while counter < 21 do
+while counter_1 < 21 do
+    User.create(username: "Example#{counter_1}", password: '123', avatar_id: counter_1, distance: 20, results: 20)
+    counter_1 += 1
+end
+
+while counter_2 < 21 do
     Comment.create(user_id: counter_2, trail_id: 7047354, content: 'Test')
+    Like.create(user_id: counter_2, trail_id: 7047354)
+    CompletedHike.create(user_id: counter_2, trail_id: 7047354)
+    counter_2 += 1
 end
