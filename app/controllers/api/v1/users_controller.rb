@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    before_action :authorized
+    before_action :authorized, except: [:create]
     def account
         render json: {user: UserSerializer.new(current_user)}, status: :accepted
     end

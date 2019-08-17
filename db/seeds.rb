@@ -71,27 +71,17 @@ Avatar.create(img_url: 'https://img.icons8.com/color/2x/mouse-animal.png', name:
 Avatar.create(img_url: 'https://img.icons8.com/color/2x/pig.png', name: 'pig')
 Avatar.create(img_url: 'https://img.icons8.com/color/2x/fox.png', name: 'fox')
 Avatar.create(img_url: 'https://img.icons8.com/officel/2x/deer.png', name: 'deer')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-1-2.png', name: 'female 1')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-3.png', name: 'female 2')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-4.png', name: 'female 3')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-5.png', name: 'female 4')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-female-skin-type-6.png', name: 'female 5')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-1-2.png', name: 'male 1')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-3.png', name: 'male 2')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-4.png', name: 'male 3')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-5.png', name: 'male 4')
-Avatar.create(img_url: 'https://img.icons8.com/officel/2x/user-male-skin-type-6.png', name: 'male 5')
 
 counter_1 = 1
 counter_2 = 1
 
-while counter_1 < 21 do
+while counter_1 < 11 do
     User.create(username: "Example#{counter_1}", password: '123', avatar_id: counter_1, distance: 20, results: 20)
     counter_1 += 1
 end
 
-while counter_2 < 21 do
-    Comment.create(user_id: counter_2, trail_id: 7047354, content: 'Test')
+while counter_2 < 11 do
+    Comment.create(user_id: counter_2, trail_id: 7047354, content: 'Good Hike')
     Like.create(user_id: counter_2, trail_id: 7047354)
     CompletedHike.create(user_id: counter_2, trail_id: 7047354)
     counter_2 += 1
