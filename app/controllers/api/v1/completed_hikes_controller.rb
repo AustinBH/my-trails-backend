@@ -19,7 +19,7 @@ class Api::V1::CompletedHikesController < ApplicationController
     def delete
         completed_hike = CompletedHike.find_by(completed_hike_params)
         completed_hike.delete
-        render json: {message: 'Like deleted successfully'}, status: :accepted
+        render json: {message: 'Completed hike deleted successfully'}, status: :accepted
     end
 
     private
