@@ -8,7 +8,7 @@ class Api::V1::ImagesController < ApplicationController
 
     def create
         #Will need to also save image to hosting site (aws)
-        s3 = Aws::S3::Resource.new(region: 'us-west-2')
+        s3 = Aws::S3::Resource.new
         s3_bucket = s3.bucket(ENV["S3_BUCKET"])
 
         image_body = Base64.decode64(image_params[:photo_file].split(',')[1])
