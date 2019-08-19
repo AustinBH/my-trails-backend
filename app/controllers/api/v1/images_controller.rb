@@ -1,4 +1,5 @@
 class Api::V1::ImagesController < ApplicationController
+    before_action :authorized, only: [:create, :delete]
 
     def index
         if params[:trail_id]
