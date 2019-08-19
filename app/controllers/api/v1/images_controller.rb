@@ -13,7 +13,7 @@ class Api::V1::ImagesController < ApplicationController
 
         image_body = Base64.decode64(image_params[:photo_file].split(',')[1])
         image_content = image_params[:photo_file].split(':')[1].split(';').flatten[0]
-        image_obj = s3_bucket.object((0..8).map { (65 + rand(26)).chr }.join + image_params[:photo_file_name])
+        image_obj = s3_bucket.object("users/#{image_params[:user_id]}/images/" + (0..8).map { (65 + rand(26)).chr }.join + image_params[:photo_file_name])
         image_obj.put(body: image_body, acl: 'public-read', content_type: image_content, content_encoding: 'base64')
 
         image = Image.new(user_id: image_params[:user_id], trail_id: image_params[:trail_id], img_url: image_obj.public_url)
