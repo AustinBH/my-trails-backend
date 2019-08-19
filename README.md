@@ -29,3 +29,9 @@ There are still several routes which will return data, the trails, locations, an
 As this is a rails app, you will need to run bundle install after you clone the repo. There are also several different .env variables that you will need to define. I have created a .env.sample file to give you placeholders for what keys you will need to use the full functionality of this application.
 
 As the frontend for this app is located in a different repo, you can always navigate the direct localhost routes. You can also use an application like Postman to make requests and test your server or simply clone the frontend app if you want to see the data that is returned.
+
+## Thank You!
+
+![](https://media.giphy.com/media/xULW8v7LtZrgcaGvC0/giphy.gif)
+
+ * [REI's Hiking Project](https://www.hikingproject.com) Their [API](https://www.hikingproject.com/data) has been an absoloute pleasure to work with and I am so glad that I was able to integrate it into this application.
