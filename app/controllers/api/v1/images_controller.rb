@@ -7,7 +7,6 @@ class Api::V1::ImagesController < ApplicationController
     end
 
     def create
-        #Will need to also save image to hosting site (aws)
         s3 = Aws::S3::Resource.new
         s3_bucket = s3.bucket(ENV["S3_BUCKET"])
 
