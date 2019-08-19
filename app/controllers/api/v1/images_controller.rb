@@ -17,7 +17,7 @@ class Api::V1::ImagesController < ApplicationController
     end
 
     def delete
-        image = Image.find_by(image_params[:id])
+        image = Image.find(image_params[:id])
         image.delete
         render json: {message: 'Image deleted successfully'}, status: :accepted
     end
