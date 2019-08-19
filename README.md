@@ -34,4 +34,5 @@ As the frontend for this app is located in a different repo, you can always navi
 
 ![](https://media.giphy.com/media/xULW8v7LtZrgcaGvC0/giphy.gif)
 
- * [REI's Hiking Project](https://www.hikingproject.com) Their [API](https://www.hikingproject.com/data) has been an absoloute pleasure to work with and I am so glad that I was able to integrate it into this application.
+ * [REI's Hiking Project](https://www.hikingproject.com)
+   - Their [API](https://www.hikingproject.com/data) has been an absoloute pleasure to work with and I am so glad that I was able to integrate it into this application.
