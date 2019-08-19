@@ -1,24 +1,38 @@
-# README
+# My Trails Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This API is used for a trail finder app. Images are integrated with AWS S3 to allow users to upload their own hiking images. This API will respond to calls from the My Trails app frontend but will not allow requests from other sources. As the application is not yet hosted the example routes will be localhost variants. Once I have hosted the full app, I will be sure to update the routes
 
-Things you may want to cover:
+![](https://media.giphy.com/media/l0G17xIGgcy5Kdwha/giphy.gif)
 
-* Ruby version
+## Example Routes
 
-* System dependencies
+There are still several routes which will return data, the trails, locations, and avatars routes will all return data.
 
-* Configuration
+  * Trails
+    - Location Search
+      - Example Route: http://localhost:3000/api/v1/trails-by-location?lat=40.0274&lon=-105.2519
+      - This route will return trail data based on latitude and longitudinal coordinates
+    - Ids Search
+      - Example Route: http://localhost:3000/api/v1/trails-by-ids?ids=7015435,7011234,7011187
+      - This route will return trail data based on their ids in the [Hiking Project API](https://www.hikingproject.com/data)
+  * Locations
+    - Example Route: http://localhost:3000/api/v1/locations
+    - This route will return location data, a location name, the coordinates, the state, and the city name.
+  * Avatars
+    - Example Route: http://localhost:3000/api/v1/avatars
+    - This route will return avatar data, an image url, and a shorthand name for the avatar image.
 
-* Database creation
+## Setting up the server
 
-* Database initialization
+![](https://media.giphy.com/media/l4FGmsWSQiwJe0NFe/giphy.gif)
 
-* How to run the test suite
+As this is a rails app, you will need to run bundle install after you clone the repo. There are also several different .env variables that you will need to define. I have created a .env.sample file to give you placeholders for what keys you will need to use the full functionality of this application.
 
-* Services (job queues, cache servers, search engines, etc.)
+As the frontend for this app is located in a different repo, you can always navigate the direct localhost routes. You can also use an application like Postman to make requests and test your server or simply clone the frontend app if you want to see the data that is returned.
 
-* Deployment instructions
+## Thank You!
 
-* ...
+![](https://media.giphy.com/media/xULW8v7LtZrgcaGvC0/giphy.gif)
+
+ * [REI's Hiking Project](https://www.hikingproject.com)
+   - Their [API](https://www.hikingproject.com/data) has been an absoloute pleasure to work with and I am so glad that I was able to integrate it into this application.
