@@ -8,20 +8,20 @@ class Api::V1::ImagesController < ApplicationController
 
     def create
         #Will need to also save image to hosting site (aws)
-        puts image_params[:file]
-        puts prepare_file(image_params[:file])
-        render json: prepare_file(image_params[:file])
+        s3 = Aws::S3::Resource.new(region: 'us-west-2')
+        s3_bucket = s3.bucket(ENV["S3_BUCKET"])
 
-        # s3 = Aws::S3::Resource.new
-        # obj = s3.bucket(S3_BUCKET).object(filename)
-        # obj.upload_file(filepath)
-        # prepare_file(image_params[:file])
-        # image = Image.new(image_params)
-        # if image.save
-        #     render json: {image: ImageSerializer.new(image)}, status: :accepted
-        # else
-        #     render json: {error: image.errors}, status: :error
-        # end
+        image_body = Base64.decode64(image_params[:photo_file].split(',')[1])
+        image_content = image_params[:photo_file].split(':')[1].split(';').flatten[0]
+        image_obj = s3_bucket.object((0..8).map { (65 + rand(26)).chr }.join + image_params[:photo_file_name])
+        image_obj.put(body: image_body, acl: 'public-read', content_type: image_content, content_encoding: 'base64')
+
+        image = Image.new(user_id: image_params[:user_id], trail_id: image_params[:trail_id], img_url: image_obj.public_url)
+        if image.save
+            render json: {image: ImageSerializer.new(image)}, status: :accepted
+        else
+            render json: {error: image.errors}, status: :error
+        end
     end
 
     def delete
@@ -32,17 +32,6 @@ class Api::V1::ImagesController < ApplicationController
 
     private
     def image_params
-        params.require(:image).permit(:user_id, :trail_id, :img_url, :id, :file)
-    end
-
-    def prepare_file(data)
-        start_date = 2.months.ago.strftime("%Y%m%d")
-        end_date = 3.months.ago.strftime("%Y%m%d")
-
-        filename = "#{start_date}-#{end_date}.json"
-        file = File.open(File.join(Dir.pwd, '/tmp', filename), "w")
-        file.puts(data.to_json)
-        file.close
-        file
+        params.require(:image).permit(:user_id, :trail_id, :img_url, :id, :photo_file, :photo_file_name)
     end
 end
