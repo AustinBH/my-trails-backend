@@ -1,5 +1,5 @@
 class Api::V1::CompletedHikesController < ApplicationController
-    before_action :authorized, only: [:create, :delete]
+    before_action :authorized
     def index
         if params[:trail_id]
             completed_hikes = CompletedHike.where(trail_id: params[:trail_id])

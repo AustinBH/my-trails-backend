@@ -1,5 +1,5 @@
 class Api::V1::LikesController < ApplicationController
-    before_action :authorized, only: [:create, :delete]
+    before_action :authorized
     def index
         if params[:trail_id]
             likes = Like.where(trail_id: params[:trail_id])
