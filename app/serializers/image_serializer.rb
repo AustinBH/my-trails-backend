@@ -1,5 +1,5 @@
 class ImageSerializer < ActiveModel::Serializer
-  attributes :trail_id, :username, :img_url, :avatar
+  attributes :trail_id, :username, :img_url, :avatar, :id
 
   def username
     object.user.username
