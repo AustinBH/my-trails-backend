@@ -1,4 +1,5 @@
 class Api::V1::ImagesController < ApplicationController
+
     def index
         if params[:trail_id]
             images = Image.where(trail_id: params[:trail_id])
@@ -25,8 +26,13 @@ class Api::V1::ImagesController < ApplicationController
 
     def delete
         image = Image.find(image_params[:id])
-        image.delete
+        image.destroy
         render json: {message: 'Image deleted successfully'}, status: :accepted
+
+        s3 = Aws::S3::Resource.new
+        s3_bucket = s3.bucket(ENV["S3_BUCKET"])
+        key = image_params[:img_url].split('amazonaws.com/')[1]
+        s3_bucket.object(key).delete
     end
 
     private
