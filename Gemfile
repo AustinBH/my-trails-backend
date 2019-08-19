@@ -27,6 +27,9 @@ gem 'json'
 # Allowing ENV variables to be accessible
 gem 'dotenv-rails'
 
+# AWS S3 hosting
+gem 'aws-sdk-s3'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
