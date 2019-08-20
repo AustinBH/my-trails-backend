@@ -30,6 +30,7 @@ class Api::V1::ImagesController < ApplicationController
         image.destroy
         render json: {message: 'Image deleted successfully'}, status: :accepted
 
+        # Deleting s3 object when we delete image
         s3 = Aws::S3::Resource.new
         s3_bucket = s3.bucket(ENV["S3_BUCKET"])
         key = image_params[:img_url].split('amazonaws.com/')[1]
