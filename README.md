@@ -1,6 +1,8 @@
 # My Trails Backend
 
-This API is used for a trail finder app. Images are integrated with AWS S3 to allow users to upload their own hiking images. This API will respond to calls from the My Trails app frontend but will not allow requests from other sources. As the application is not yet hosted the example routes will be localhost variants. Once I have hosted the full app, I will be sure to update the routes
+This API is used for a trail finder app. Images are integrated with AWS S3 to allow users to upload their own hiking images. This API will respond to calls from the My Trails app frontend but will not allow requests from other sources.
+
+The API is currently hosted at: https://my-trails-backend.herokuapp.com
 
 ![](https://media.giphy.com/media/l0G17xIGgcy5Kdwha/giphy.gif)
 
@@ -10,16 +12,16 @@ There are still several routes which will return data, the trails, locations, an
 
   * Trails
     - Location Search
-      - Example Route: http://localhost:3000/api/v1/trails-by-location?lat=40.0274&lon=-105.2519
+      - Example Route: https://my-trails-backend.herokuapp.com/api/v1/trails-by-location?lat=40.0274&lon=-105.2519
       - This route will return trail data based on latitude and longitudinal coordinates
     - Ids Search
-      - Example Route: http://localhost:3000/api/v1/trails-by-ids?ids=7015435,7011234,7011187
+      - Example Route: https://my-trails-backend.herokuapp.com/api/v1/trails-by-ids?ids=7015435,7011234,7011187
       - This route will return trail data based on their ids in the [Hiking Project API](https://www.hikingproject.com/data)
   * Locations
-    - Example Route: http://localhost:3000/api/v1/locations
+    - Example Route: https://my-trails-backend.herokuapp.com/api/v1/locations
     - This route will return location data, a location name, the coordinates, the state, and the city name.
   * Avatars
-    - Example Route: http://localhost:3000/api/v1/avatars
+    - Example Route: https://my-trails-backend.herokuapp.com/api/v1/avatars
     - This route will return avatar data, an image url, and a shorthand name for the avatar image.
 
 ## Setting up the server
