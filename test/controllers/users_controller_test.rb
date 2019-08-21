@@ -2,15 +2,19 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
+    @user = users(:two)
   end
 
-  test "should create user" do
-    assert_difference('User.count') do
+  teardown do
+    Rails.cache.clear
+  end
+
+  test "should not create user" do
+    assert_difference('User.count', 0) do
       post '/api/v1/users', params: { user: { username: 'test', password: '123', distance: 20, results: 20 } }, as: :json
     end
-
-    assert_response 201
+    
+    assert_response 406
   end
 
   test "should not show user" do

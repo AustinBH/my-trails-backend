@@ -5,6 +5,10 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
     @location = locations(:one)
   end
 
+  teardown do
+    Rails.cache.clear
+  end
+
   test "should get index" do
     get '/api/v1/locations', as: :json
     assert_response :success

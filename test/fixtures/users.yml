@@ -1,12 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: 'test'
-  password_digest: '123'
+  username: test
+  password_digest: 123
   avatar_id: 1
   id: 1
 
 two:
   username: MyString
   password_digest: MyString
+  distance: MyString
+  results: MyString
   avatar_id: 1
+  id: 2

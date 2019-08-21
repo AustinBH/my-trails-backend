@@ -5,6 +5,10 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
     @avatar = avatars(:one)
   end
 
+  teardown do
+    Rails.cache.clear
+  end
+
   test "should get index" do
     get '/api/v1/avatars', as: :json
     assert_response :success

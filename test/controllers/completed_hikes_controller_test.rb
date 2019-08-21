@@ -5,6 +5,10 @@ class CompletedHikesControllerTest < ActionDispatch::IntegrationTest
     @completed_hike = completed_hikes(:one)
   end
 
+  teardown do
+    Rails.cache.clear
+  end
+
   test "should not get index" do
     get '/api/v1/completed-hikes', as: :json
     assert_response 401

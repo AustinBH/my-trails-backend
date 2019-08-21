@@ -5,6 +5,10 @@ class LikesControllerTest < ActionDispatch::IntegrationTest
     @like = likes(:one)
   end
 
+  teardown do
+    Rails.cache.clear
+  end
+
   test "should not get index" do
     get '/api/v1/likes', as: :json
     assert_response 401

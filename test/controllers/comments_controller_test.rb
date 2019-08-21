@@ -5,6 +5,10 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @comment = comments(:one)
   end
 
+  teardown do
+    Rails.cache.clear
+  end
+
   test "should get index" do
     get '/api/v1/comments', as: :json
     assert_response :success
