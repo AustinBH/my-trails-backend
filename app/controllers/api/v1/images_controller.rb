@@ -1,6 +1,5 @@
 class Api::V1::ImagesController < ApplicationController
     before_action :authorized
-
     def index
         if params[:trail_id]
             images = Image.where(trail_id: params[:trail_id])

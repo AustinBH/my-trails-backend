@@ -16,5 +16,4 @@ class Api::V1::TrailsController < ApplicationController
         json = JSON.parse(response.body)
         render json: json["trails"]
     end
-
 end

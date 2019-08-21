@@ -9,8 +9,9 @@ Rails.application.routes.draw do
       patch '/account', to: 'users#update'
       delete '/account', to: 'users#delete'
       post '/login', to: 'auth#create'
-      #Avatar Routes
+      #Avatar Route
       get '/avatars', to: 'avatars#index'
+      #Location Route
       get '/locations', to: 'locations#index'
       #Trail Routes
       get '/trails-by-location', to: 'trails#location_search'
