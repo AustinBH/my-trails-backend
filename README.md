@@ -25,6 +25,13 @@ There are still several routes which will return data, the trails, locations, an
   * Avatars
     - Example Route: https://my-trails-backend.herokuapp.com/api/v1/avatars
     - This route will return avatar data, an image url, and a shorthand name for the avatar image.
+    
+## Technology Used
+
+* Ruby on Rails
+* JWT user authentication
+* AWS S3 image hosting
+* Hiking Project API
 
 ## Setting up the server
 
