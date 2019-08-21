@@ -8,7 +8,7 @@ The API is currently hosted at: https://my-trails-backend.herokuapp.com
 
 The frontend application is currently functional and can be found at: https://my-trails.herokuapp.com/
 
-![](https://imgur.com/a/xlfLWVD)
+[![](https://i.imgur.com/vKTJWJe.png)](https://youtu.be/LO-hzgt9Gaw)
 
 ## Example Routes
 
