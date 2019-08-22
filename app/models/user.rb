@@ -1,8 +1,8 @@
 class User < ApplicationRecord
     belongs_to :avatar
-    has_many :likes
-    has_many :completed_hikes
-    has_many :comments
+    has_many :likes, dependent: :delete_all
+    has_many :completed_hikes, dependent: :delete_all
+    has_many :comments, dependent: :delete_all
 
     validates :username, presence: true
     validates :username, uniqueness: true
