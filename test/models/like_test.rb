@@ -5,17 +5,18 @@ class LikeTest < ActiveSupport::TestCase
         @like = likes(:one)
     end
 
-    teardown do
-        Rails.cache.clear
+    test "should not save like without user" do
+        like = Like.new(trail_id: 1)
+        assert !like.save, 'Saved the like without a user'
     end
 
     test "should not save same like twice" do
-        completed_hike = CompletedHike.new(trail_id: @like.trail_id, user_id: @like.user_id)
-        assert !completed_hike.save, 'Saved the like again with the same user'
+        like = Like.new(trail_id: @like.trail_id, user_id: @like.user_id)
+        assert !like.save, 'Saved the like again with the same user'
     end
 
-    test "should not save completed hike without trail" do
-        completed_hike = CompletedHike.new(user_id: 1)
-        assert !completed_hike.save, 'Saved the like without a trail'
+    test "should not save like without trail" do
+        like = Like.new(user_id: 1)
+        assert !like.save, 'Saved the like without a trail'
     end
 end

@@ -5,8 +5,9 @@ class CompletedHikeTest < ActiveSupport::TestCase
         @completed_hike = completed_hikes(:one)
     end
 
-    teardown do
-        Rails.cache.clear
+    test "should not save completed hike without user" do
+        completed_hike = CompletedHike.new(trail_id: 1)
+        assert !completed_hike.save, 'Saved the completed hike without a user'
     end
 
     test "should not save same completed hike twice" do

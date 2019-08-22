@@ -4,18 +4,14 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @comment = comments(:one)
   end
-
-  teardown do
-    Rails.cache.clear
-  end
-
+  
   test "should get index" do
     get '/api/v1/comments', as: :json
     assert_response :success
   end
 
   test "should not create comment" do
-    assert_difference('Comment.count', 0) do
+    assert_difference 'Comment.count', 0, 'Please log in' do
       post '/api/v1/comments', params: { comment: {  } }, as: :json
     end
 
@@ -28,7 +24,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy comment" do
-    assert_difference('Comment.count', 0) do
+    assert_difference 'Comment.count', 0, 'Please log in' do
       delete '/api/v1/comments', as: :json
     end
 

@@ -5,12 +5,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:two)
   end
 
-  teardown do
-    Rails.cache.clear
-  end
-
   test "should not create user" do
-    assert_difference('User.count', 0) do
+    assert_difference('User.count', 0, 'That username is taken') do
       post '/api/v1/users', params: { user: { username: 'test', password: '123', distance: 20, results: 20 } }, as: :json
     end
     

@@ -5,10 +5,6 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     @image = images(:one)
   end
 
-  teardown do
-    Rails.cache.clear
-  end
-
   test "should not get index" do
     get '/api/v1/images', as: :json
     assert_response 401

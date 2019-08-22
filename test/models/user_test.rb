@@ -5,10 +5,6 @@ class UserTest < ActiveSupport::TestCase
         @user = users(:one)
     end
 
-    teardown do
-        Rails.cache.clear
-    end
-
     test "user has likes" do
         assert @user.likes, 'User does not have likes'
     end
@@ -39,5 +35,15 @@ class UserTest < ActiveSupport::TestCase
     test "user has an avatar" do
         user = User.new(username: 'test1', password: '123', distance: 20, results: 20)
         assert !user.save, 'User was saved without an avatar'
+    end
+
+    test "user has a distance" do
+        user = User.new(username: 'test1', password: '123', results: 20)
+        assert !user.save, 'User was saved without a distance'
+    end
+
+    test "user has results" do
+        user = User.new(username: 'test1', password: '123', distance: 20)
+        assert !user.save, 'User was saved without a results preference'
     end
 end
