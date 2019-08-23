@@ -7,6 +7,7 @@ class Api::V1::UsersController < ApplicationController
     def create
         user = User.new(username: user_params[:username], password: user_params[:password], distance: user_params[:distance], results: user_params[:results], avatar_id: 1)
         if user.save
+            # Create a JWT token
             token = encode_token(user_id: user.id)
             render json: {user: UserSerializer.new(user), jwt: token}, status: :created
         else
@@ -16,7 +17,9 @@ class Api::V1::UsersController < ApplicationController
 
     def update
         user = current_user
+        # Need to check that the user provided the correct password
         if user.authenticate(user_params[:password])
+            # We want to update with a new password if the user provided one
             if user_params[:new_password]
                 user.update(username: user_params[:username], password: user_params[:new_password], results: user_params[:results], distance: user_params[:distance], avatar_id: user_params[:avatar_id])
             else
@@ -29,6 +32,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def delete
+        # Need to double check that the user provided the correct password
         if current_user.authenticate(user_params[:password])
             current_user.destroy
             render json: {message: 'User deleted successfully'}, status: :accepted
