@@ -21,7 +21,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
   allow do
-    origins 'https://www.my-trails.info'
+    origins 'https://my-trails.info'
 
     resource '*',
       headers: :any,
@@ -35,7 +35,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
   allow do
-    origins 'http://www.my-trails.info'
+    origins 'http://my-trails.info'
 
     resource '*',
       headers: :any,
