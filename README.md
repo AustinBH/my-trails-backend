@@ -2,7 +2,7 @@
 
 This API is used for a trail finder app. Images are integrated with AWS S3 to allow users to upload their own hiking images. This API will respond to calls from the My Trails app frontend but will not allow requests from other sources.
 
-The API is currently hosted at: https://my-trails-backend.herokuapp.com
+The API is currently hosted at: https://my-trails.info
 
 ## Demo
 
